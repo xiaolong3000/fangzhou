@@ -15,5 +15,7 @@
    <Label layoutX="32.0" layoutY="122.0" text="每轮需要的时间（秒）" />
    <TextField fx:id="meilunlizhi" layoutX="152.0" layoutY="81.0" />
    <TextField fx:id="meilunshijian" layoutX="152.0" layoutY="118.0" />
-   <CheckBox layoutX="338.0" layoutY="85.0" mnemonicParsing="false" text="已经刷过了" fx:id="yijingshuaguo"/>
+   <CheckBox fx:id="yijingshuaguo" layoutX="338.0" layoutY="85.0" mnemonicParsing="false" text="已经刷过了" />
+   <Label layoutX="32.0" layoutY="150.0" text="准备消耗多少颗原石" />
+    <TextField fx:id="meilunyuanshi" layoutX="152.0" layoutY="150.0" />
 </AnchorPane>

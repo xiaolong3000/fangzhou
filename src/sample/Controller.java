@@ -29,23 +29,26 @@ public class Controller implements Initializable {
     private CheckBox checkBox;
     @FXML
     private CheckBox yijingshuaguo;
+    @FXML
+    private TextField meilunyuanshi;
 
 
     private int lun_LIZHI = 130;//当前等级理智上限
-    private int bao_LIZHI = 60;//每天的理智包
-
+   // private int bao_LIZHI = 60;//每天的理智包
+   // private int suishi=0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         fangzhou f = new fangzhou();
 
         button.setOnMouseClicked(event -> {
-            if (!nowlizhi.getText().equals("") && !meilunlizhi.getText().equals("") && !meilunshijian.getText().equals("")) {
+            if (!nowlizhi.getText().equals("") && !meilunlizhi.getText().equals("") && !meilunshijian.getText().equals("") && !meilunyuanshi.getText().equals("")) {
                 int now = Integer.parseInt(nowlizhi.getText());
                 int meilun = Integer.parseInt(meilunlizhi.getText());
                 int time = Integer.parseInt(meilunshijian.getText());
-                int lizhi = 10 * lun_LIZHI + bao_LIZHI + now;
+                int lunyuanshi=Integer.parseInt(meilunyuanshi.getText());
+                int lizhi = lunyuanshi * lun_LIZHI  + now;
                 if (yijingshuaguo.isSelected()){
                     lizhi=now;
                 }
@@ -66,7 +69,7 @@ public class Controller implements Initializable {
 
                     }
                     dao.beginTransaction();
-                    dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','进行了  " + xiuzhenglun + " 轮循环')");
+                    dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','run   " + xiuzhenglun + " times')");
 
                     dao.commitTransaction();
 
