@@ -8,14 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <Label layoutX="32.0" layoutY="37.0" text="现在的理智：  " />
-    <TextField fx:id="nowlizhi" layoutX="152.0" layoutY="33.0" />
+    <TextField fx:id="nowlizhi" layoutX="202.0" layoutY="33.0" />
     <Button fx:id="button" layoutX="193.0" layoutY="221.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="开始" />
-    <CheckBox fx:id="checkBox" layoutX="206.0" layoutY="259.0" mnemonicParsing="false" text="完成后关机" />
+    <CheckBox fx:id="checkBox" layoutX="500.0" layoutY="259.0" mnemonicParsing="false" text="完成后关机" />
    <Label layoutX="32.0" layoutY="85.0" text="每轮消耗理智" />
    <Label layoutX="32.0" layoutY="122.0" text="每轮需要的时间（秒）" />
-   <TextField fx:id="meilunlizhi" layoutX="152.0" layoutY="81.0" />
-   <TextField fx:id="meilunshijian" layoutX="152.0" layoutY="118.0" />
-   <CheckBox fx:id="yijingshuaguo" layoutX="338.0" layoutY="85.0" mnemonicParsing="false" text="已经刷过了" />
+   <TextField fx:id="meilunlizhi" layoutX="202.0" layoutY="81.0" />
+   <TextField fx:id="meilunshijian" layoutX="202.0" layoutY="118.0" />
+   <CheckBox fx:id="yijingshuaguo" layoutX="500.0" layoutY="85.0" mnemonicParsing="false" text="已经刷过了" />
    <Label layoutX="32.0" layoutY="150.0" text="准备消耗多少颗原石" />
-    <TextField fx:id="meilunyuanshi" layoutX="152.0" layoutY="150.0" />
+    <TextField fx:id="meilunyuanshi" layoutX="202.0" layoutY="150.0" />
 </AnchorPane>
