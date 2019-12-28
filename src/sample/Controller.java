@@ -1,6 +1,9 @@
 package sample;
 
 import dao.Dao;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -59,33 +62,41 @@ public class Controller implements Initializable {
                 int xiuzhenglun = lun + time * lun / (60 * 6);
                 // System.out.println(xiuzhenglun);
                 button.setDisable(true);
-
-
                 f.init();
-                Dao dao = new Dao();
-                try {
+                Service<String> service = new Service<String>() {
+                    @Override
+                    protected Task<String> createTask() {
 
-                    for (int i = 0; i < lun; i++) {
-                        f.xunhuan(time);
-                        System.out.println("进行到第" + i);
-                        label.setText("进行到第" + i + "轮循环");
+                        return new Task<String>() {
+                            @Override
+                            protected String call() throws Exception {
+                                for (int i = 0; i < lun; i++) {
+                                    f.xunhuan(time);
+                                    updateValue("run at " + (i+1) + " times");
+                                    //System.out.println(i);
+                                }
 
+                                return "success";
+                            }
+                        };
                     }
-                    dao.beginTransaction();
-                    dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','run   " + xiuzhenglun + " times')");
-
-                    dao.commitTransaction();
-
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                dao.close();
-                if (checkBox.isSelected()) {
-                    f.shutdown();
-                }
-
+                };
+                service.setOnSucceeded((WorkerStateEvent event1) -> {
+                    Dao dao = new Dao();
+                    try {
+                        dao.beginTransaction();
+                        dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','run   " + xiuzhenglun + " times')");
+                        dao.commitTransaction();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    dao.close();
+                    if (checkBox.isSelected()) {
+                        f.shutdown();
+                    }
+                });
+                label.textProperty().bind(service.valueProperty());
+                service.start();
 
             }
         });
