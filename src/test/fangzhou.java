@@ -45,7 +45,7 @@ public class fangzhou {//1-7 90 money 120 exp 150
       //  System.out.println("button two  " + new Date());
     }
     public void button_start_three(){
-        this.runCMD("adb shell input tap 320 425");
+        this.runCMD("adb shell input tap 320 25");
         this.sleep(3);
       //  System.out.println("button three "+new Date());
     }
