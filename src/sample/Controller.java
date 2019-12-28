@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import test.fangzhou;
 
@@ -31,7 +32,8 @@ public class Controller implements Initializable {
     private CheckBox yijingshuaguo;
     @FXML
     private TextField meilunyuanshi;
-
+@FXML
+private Label label;
 
     private int lun_LIZHI = 130;//当前等级理智上限
    // private int bao_LIZHI = 60;//每天的理智包
@@ -66,6 +68,7 @@ public class Controller implements Initializable {
                     for (int i = 0; i < lun; i++) {
                         f.xunhuan(time);
                         System.out.println("进行到第"+i);
+                        label.setText("进行到第"+i+"轮循环");
 
                     }
                     dao.beginTransaction();
