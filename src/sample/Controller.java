@@ -32,12 +32,12 @@ public class Controller implements Initializable {
     private CheckBox yijingshuaguo;
     @FXML
     private TextField meilunyuanshi;
-@FXML
-private Label label;
+    @FXML
+    private Label label;
 
     private int lun_LIZHI = 130;//当前等级理智上限
-   // private int bao_LIZHI = 60;//每天的理智包
-   // private int suishi=0;
+    // private int bao_LIZHI = 60;//每天的理智包
+    // private int suishi=0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,10 +49,10 @@ private Label label;
                 int now = Integer.parseInt(nowlizhi.getText());
                 int meilun = Integer.parseInt(meilunlizhi.getText());
                 int time = Integer.parseInt(meilunshijian.getText());
-                int lunyuanshi=Integer.parseInt(meilunyuanshi.getText());
-                int lizhi = lunyuanshi * lun_LIZHI  + now;
-                if (yijingshuaguo.isSelected()){
-                    lizhi=now;
+                int lunyuanshi = Integer.parseInt(meilunyuanshi.getText());
+                int lizhi = lunyuanshi * lun_LIZHI + now;
+                if (yijingshuaguo.isSelected()) {
+                    lizhi = now;
                 }
 
                 int lun = lizhi / meilun;
@@ -67,8 +67,8 @@ private Label label;
 
                     for (int i = 0; i < lun; i++) {
                         f.xunhuan(time);
-                        System.out.println("进行到第"+i);
-                        label.setText("进行到第"+i+"轮循环");
+                        System.out.println("进行到第" + i);
+                        label.setText("进行到第" + i + "轮循环");
 
                     }
                     dao.beginTransaction();
