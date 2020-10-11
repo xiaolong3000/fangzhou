@@ -21,6 +21,6 @@
    <TextField fx:id="meilunshijian" layoutX="202.0" layoutY="118.0" text="120"/>
    <CheckBox fx:id="yijingshuaguo" layoutX="500.0" layoutY="85.0" mnemonicParsing="false" text="已经刷过了" />
    <Label layoutX="32.0" layoutY="150.0" text="准备消耗多少颗原石" />
-    <TextField fx:id="meilunyuanshi" layoutX="202.0" layoutY="150.0" text="10"/>
+    <TextField fx:id="meilunyuanshi" layoutX="202.0" layoutY="150.0" text="0"/>
     <Label layoutX="32.0" layoutY="300.0" text="" fx:id="label"/>
 </AnchorPane>

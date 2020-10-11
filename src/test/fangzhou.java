@@ -22,8 +22,11 @@ public class fangzhou {//1-7 90 money 120 exp 150
 
     public void init() {
         this.runCMD("adb connect 127.0.0.1:7555");
+        System.out.println("connect");
         this.sleep(60);
     }
+
+
 
     public void sleep(int second) {
         try {
@@ -36,18 +39,18 @@ public class fangzhou {//1-7 90 money 120 exp 150
     public void button_start_one() {
         this.runCMD("adb shell input tap " + (1250 - r.nextInt(3)) + " " + (625 + r.nextInt(3)) + " ");
         this.sleep(3);
-       // System.out.println("button one  " + new Date());
+        System.out.println("button one  " + new Date());
     }
 
     public void button_start_two() {
         this.runCMD("adb shell input tap " + (1250 - r.nextInt(3)) + " " + (750 - r.nextInt(3)) + " ");
         this.sleep(3);
-      //  System.out.println("button two  " + new Date());
+        System.out.println("button two  " + new Date());
     }
     public void button_start_three(){
         this.runCMD("adb shell input tap 320 25");
         this.sleep(3);
-      //  System.out.println("button three "+new Date());
+        System.out.println("button three "+new Date());
     }
 
     public void shutdown() {
