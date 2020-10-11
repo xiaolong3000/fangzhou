@@ -82,15 +82,15 @@ public class Controller implements Initializable {
                     }
                 };
                 service.setOnSucceeded((WorkerStateEvent event1) -> {
-                    Dao dao = new Dao();
-                    try {
-                        dao.beginTransaction();
-                        dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','run   " + xiuzhenglun + " times')");
-                        dao.commitTransaction();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                    dao.close();
+//                    Dao dao = new Dao();
+//                    try {
+//                        dao.beginTransaction();
+//                        dao.update("insert into context(time,thistext) values('" + simpleDateFormat.format(new Date()) + "','run   " + xiuzhenglun + " times')");
+//                        dao.commitTransaction();
+//                    } catch (SQLException e) {
+//                        e.printStackTrace();
+//                    }
+//                    dao.close();
                     if (checkBox.isSelected()) {
                         f.shutdown();
                     }
